@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="color-scheme" content="dark" />
+    <title>Huiswerk Logger — geschiedenis</title>
+    <link rel="stylesheet" href="ui.css" />
+  </head>
+  <body class="page">
+    <header class="app-header page-header">
+      <div class="brand">
+        <img class="brand-icon" src="../icons/128.png" alt="" width="36" height="36" />
+        <div class="brand-text">
+          <h1>Somtoday Huiswerk Logger</h1>
+          <p class="muted" id="subtitle">Geschiedenis laden…</p>
+        </div>
+      </div>
+
+      <nav class="tabs" role="tablist">
+        <button class="tab is-active" data-view="events" role="tab">Wijzigingen</button>
+        <button class="tab" data-view="diagnose" role="tab">Diagnose</button>
+      </nav>
+
+      <div class="header-actions">
+        <button id="btn-refresh">Vernieuwen</button>
+        <button id="btn-export">Exporteer JSON</button>
+        <button id="btn-clear" class="danger">Wissen</button>
+      </div>
+    </header>
+
+    <main>
+      <section id="view-events" class="view">
+        <div class="filters">
+          <input id="filter-q" type="search" placeholder="Zoek in titel, vak of wijziging…" />
+          <select id="filter-type">
+            <option value="all">Alle soorten</option>
+            <option value="changed">Gewijzigd</option>
+            <option value="added">Nieuw</option>
+            <option value="removed">Verdwenen</option>
+          </select>
+          <select id="filter-period">
+            <option value="0">Alles</option>
+            <option value="1">Vandaag</option>
+            <option value="7">7 dagen</option>
+            <option value="30">30 dagen</option>
+          </select>
+          <label class="row small">
+            <input type="checkbox" id="filter-initial" />
+            <span>Toon eerste vastlegging</span>
+          </label>
+          <span class="muted" id="filter-count"></span>
+        </div>
+
+        <div class="split">
+          <ul id="event-list" class="event-list"></ul>
+          <article id="event-detail" class="detail">
+            <p class="empty">Kies links een wijziging om de details te zien.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="view-diagnose" class="view hidden"></section>
+    </main>
+
+    <script type="module" src="history.js"></script>
+  </body>
+</html>

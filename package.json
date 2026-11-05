@@ -1,0 +1,14 @@
+{
+  "name": "somtoday-huiswerk-logger",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Browser-extensie die al het huiswerk van Somtoday vastlegt, wijzigingen signaleert en de volledige geschiedenis bewaart.",
+  "scripts": {
+    "test": "node --test test/",
+    "icons": "node tools/make-icons.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

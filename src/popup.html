@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <title>Somtoday Huiswerk Logger</title>
+    <link rel="stylesheet" href="ui.css" />
+  </head>
+  <body class="popup">
+    <header class="app-header">
+      <img class="brand-icon" src="../icons/48.png" alt="" width="28" height="28" />
+      <div class="brand-text">
+        <h1>Huiswerk Logger</h1>
+        <p class="muted" id="status-line">Status laden…</p>
+      </div>
+    </header>
+
+    <section class="stats">
+      <div class="stat">
+        <span class="stat-value" id="stat-assignments">–</span>
+        <span class="stat-label">items vastgelegd</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value" id="stat-today">–</span>
+        <span class="stat-label">wijzigingen vandaag</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value" id="stat-last">–</span>
+        <span class="stat-label">laatste controle</span>
+      </div>
+    </section>
+
+    <section class="controls">
+      <label class="row">
+        <input type="checkbox" id="opt-notify" />
+        <span>Melding bij wijzigingen</span>
+      </label>
+      <label class="row row-split">
+        <span>Automatisch controleren</span>
+        <select id="opt-poll">
+          <option value="0">uit</option>
+          <option value="5">elke 5 min</option>
+          <option value="15">elke 15 min</option>
+          <option value="30">elk half uur</option>
+          <option value="60">elk uur</option>
+        </select>
+      </label>
+      <label class="row">
+        <input type="checkbox" id="opt-panel" />
+        <span>Toon versies op de Somtoday-pagina</span>
+      </label>
+    </section>
+
+    <div class="actions">
+      <button class="primary" id="open-history">Geschiedenis openen</button>
+      <button id="check-now">Nu controleren</button>
+    </div>
+
+    <p class="hint" id="hint"></p>
+
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>

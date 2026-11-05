@@ -1,0 +1,56 @@
+{
+  "manifest_version": 3,
+  "name": "Somtoday Huiswerk Logger",
+  "version": "1.2.0",
+  "description": "Legt elk huiswerk vast dat Somtoday toont, waarschuwt wanneer een docent iets wijzigt en bewaart de volledige geschiedenis.",
+  "minimum_chrome_version": "111",
+  "icons": {
+    "16": "icons/16.png",
+    "32": "icons/32.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "permissions": [
+    "storage",
+    "unlimitedStorage",
+    "notifications",
+    "alarms"
+  ],
+  "host_permissions": [
+    "https://*.somtoday.nl/*"
+  ],
+  "background": {
+    "service_worker": "src/background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.somtoday.nl/*"],
+      "js": ["src/injected.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://*.somtoday.nl/*"],
+      "js": ["src/content.js"],
+      "run_at": "document_start",
+      "world": "ISOLATED"
+    },
+    {
+      "matches": ["https://*.somtoday.nl/*"],
+      "js": ["src/panel.js"],
+      "run_at": "document_idle",
+      "world": "ISOLATED"
+    }
+  ],
+  "action": {
+    "default_title": "Somtoday Huiswerk Logger",
+    "default_popup": "src/popup.html",
+    "default_icon": {
+      "16": "icons/16.png",
+      "32": "icons/32.png",
+      "48": "icons/48.png",
+      "128": "icons/128.png"
+    }
+  }
+}
